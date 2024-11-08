@@ -1,0 +1,38 @@
+name: Publish Library to Private Package Registry
+
+on:
+  push:
+    branches:
+      - dev
+      - featureDev
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up .NET environment
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      # Step 3: Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # Step 4: Build the library
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+
+      # Step 5: Push the package to the private package registry
+      - name: Publish to Private Package Registry
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.AUTH_TOKEN_SECRET }}
+        run: |
+          dotnet pack --configuration Release --output ./artifacts
+          dotnet nuget push ./artifacts/*.nupkg --source https://nuget.pkg.github.com/Adrian-Organization/index.json --api-key $NUGET_AUTH_TOKEN
