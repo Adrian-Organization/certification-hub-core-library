@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificationHub.Core.Library", "CertificationHub.Core.Library\CertificationHub.Core.Library.csproj", "{C6CE3E68-CB6C-4EA1-926D-A7DB3E2188BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificationHub.Core.Library.Tests", "CertificationHub.Core.Library.Tests\CertificationHub.Core.Library.Tests.csproj", "{78C65D60-937E-4C08-B2EB-CB7F5802E212}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6CE3E68-CB6C-4EA1-926D-A7DB3E2188BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6CE3E68-CB6C-4EA1-926D-A7DB3E2188BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6CE3E68-CB6C-4EA1-926D-A7DB3E2188BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6CE3E68-CB6C-4EA1-926D-A7DB3E2188BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78C65D60-937E-4C08-B2EB-CB7F5802E212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C65D60-937E-4C08-B2EB-CB7F5802E212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C65D60-937E-4C08-B2EB-CB7F5802E212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C65D60-937E-4C08-B2EB-CB7F5802E212}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
