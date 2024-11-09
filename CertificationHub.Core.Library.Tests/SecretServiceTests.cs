@@ -29,7 +29,7 @@ public class SecretServiceTests
         try
         {
             //Act
-            await _secretService.InitAsync();
+            await ((ISecretService)_secretService).InitAsync();
 
             //Assert
             Assert.NotNull(_secretService.PostgresSqlUserManagementApiConnectionString);
@@ -53,7 +53,7 @@ public class SecretServiceTests
         _hostEnvironmentMock.Setup(env => env.ContentRootPath).Returns(Directory.GetCurrentDirectory());
 
         // Act & Assert
-        var exception = await Assert.ThrowsAsync<Exception>(() => _secretService.InitAsync());
+        var exception = await Assert.ThrowsAsync<Exception>(() => ((ISecretService)_secretService).InitAsync());
         Assert.Equal("Specified file test-secrets.json could not be found", exception.Message);
     }
     
@@ -71,7 +71,7 @@ public class SecretServiceTests
         try
         {
             // Act
-            await _secretService.InitAsync();
+            await ((ISecretService)_secretService).InitAsync();
         }
         catch (Exception ex)
         {

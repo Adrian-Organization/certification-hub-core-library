@@ -10,11 +10,23 @@ public class SecretService(IHostEnvironment hostEnvironment) : ISecretService
     private const string LocalSecretsFileNameSuffix = "secrets.json";
     private AppSecrets? _appSecrets;
 
-    public async Task InitAsync()
+    public async Task RefreshSecretsAsync()
+    {
+        try
+        {
+            _appSecrets = await GetSecretsAsync();
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine($"{exception.Message}\r\b{exception.StackTrace}");
+        }
+    }
+    
+    async Task ISecretService.InitAsync()
     {
         _appSecrets = await GetSecretsAsync();
     }
-    
+
     public string? PostgresSqlUserManagementApiConnectionString => _appSecrets?.PostgresSqlUserManagementApiConnectionString;
 
     private async Task<AppSecrets> GetSecretsAsync()
