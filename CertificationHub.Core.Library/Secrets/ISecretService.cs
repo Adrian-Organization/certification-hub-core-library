@@ -4,6 +4,6 @@ public interface ISecretService
 { 
     string? PostgresSqlUserManagementApiConnectionString { get; }
 
-    internal Task InitAsync();
+    public Task InitAsync();
     public Task RefreshSecretsAsync();
 }
